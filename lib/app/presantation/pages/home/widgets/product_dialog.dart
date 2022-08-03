@@ -1,3 +1,5 @@
+import 'package:electropeyk/app/presantation/pages/home/widgets/custom_container.dart';
+import 'package:electropeyk/app/presantation/routes/app_routes.dart';
 import 'package:electropeyk/app/presantation/theme/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -68,58 +70,38 @@ class ProductDialog extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  customContainer(
-                      title: "تعمیر", iconUrl: "assets/icons/repair.png"),
+                  SizedBox(
+                    width: 12,
+                  ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        Get.toNamed(AppRoutes.repairPage);
+                      },
+                      child: CustomContainer(
+                          title: "تعمیر", iconUrl: "assets/icons/repair.png"),
+                    ),
+                  ),
                   SizedBox(
                     width: 10,
                   ),
-                  customContainer(
-                      title: "نصب", iconUrl: "assets/icons/install.png")
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        Get.toNamed(AppRoutes.repairPage);
+                      },
+                      child: CustomContainer(
+                          title: "نصب", iconUrl: "assets/icons/install.png"),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 12,
+                  ),
                 ],
               ),
               SizedBox(
                 height: 15,
               )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class customContainer extends StatelessWidget {
-  const customContainer({
-    Key? key,
-    required this.title,
-    required this.iconUrl,
-  }) : super(key: key);
-
-  final String? title;
-  final String? iconUrl;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          border: Border.all(color: Color(0xff1980FF), width: 1),
-          borderRadius: BorderRadius.circular(8),
-          color: Color(0xff1980FF).withOpacity(0.1)),
-      child: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                title!,
-                style: MyTextStyle().style5,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Image.asset(iconUrl!)
             ],
           ),
         ),

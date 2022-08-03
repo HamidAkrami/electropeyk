@@ -36,7 +36,11 @@ class MyAppBar extends StatelessWidget {
           ),
           Expanded(
               flex: 6,
-              child: SizedBox(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Color(0xffF2F2F7),
+                ),
                 height: 49,
                 child: TextField(
                   style: MyTextStyle().style12,

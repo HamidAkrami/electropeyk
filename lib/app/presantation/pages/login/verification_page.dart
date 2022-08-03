@@ -1,6 +1,6 @@
 import 'package:electropeyk/app/presantation/controllers/login_controller.dart';
 import 'package:electropeyk/app/presantation/pages/public_widgets/button_widget.dart';
-import 'package:electropeyk/app/presantation/pages/login/widgets/input_widget.dart';
+import 'package:electropeyk/app/presantation/pages/login/widgets/enter_phone_field.dart';
 import 'package:electropeyk/app/presantation/pages/public_widgets/warning_box.dart';
 import 'package:electropeyk/app/presantation/routes/app_routes.dart';
 import 'package:electropeyk/app/presantation/theme/text_style.dart';
@@ -14,6 +14,7 @@ class VerificationPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
     return Scaffold(
       backgroundColor: Color(0xffF2F2F7),
       body: SafeArea(
@@ -39,12 +40,12 @@ class VerificationPage extends GetView<LoginController> {
                 ],
               ),
             ),
-            Expanded(
-              flex: 2,
+            Container(
+              height: Get.height * 0.27,
               child: Stack(
+                alignment: Alignment.center,
                 children: [
                   Positioned(
-                      left: size.width * 0.2,
                       top: size.height * 0.1 - 36,
                       child: Image.asset(
                         "assets/images/logoWhite.png",
@@ -53,110 +54,100 @@ class VerificationPage extends GetView<LoginController> {
                 ],
               ),
             ),
-            !controller.warningTextVisible.value
-                ? const Expanded(child: SizedBox())
-                : Container(),
             Expanded(
-                flex: 4,
-                child: Container(
-                  margin: EdgeInsets.only(top: 10),
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: Text(
-                            "کد ارسال شده به شماره 09351234567 را وارد نمایید",
-                            style: MyTextStyle().style10,
-                          ),
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: Text(
+                          "کد ارسال شده به شماره 09351234567 را وارد نمایید",
+                          style: MyTextStyle().style10,
                         ),
                       ),
-                      Obx(
-                        () => Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            Expanded(
-                              child: VerificationInput(
-                                  focusIndex: controller.focusIndex.value,
-                                  index: 0,
-                                  verificationController:
-                                      controller.verificationController1!),
-                            ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            Expanded(
-                              child: VerificationInput(
-                                  focusIndex: controller.focusIndex.value,
-                                  index: 1,
-                                  verificationController:
-                                      controller.verificationController2!),
-                            ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            Expanded(
-                              child: VerificationInput(
-                                  focusIndex: controller.focusIndex.value,
-                                  index: 2,
-                                  verificationController:
-                                      controller.verificationController3!),
-                            ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            Expanded(
-                              child: VerificationInput(
-                                  focusIndex: controller.focusIndex.value,
-                                  index: 3,
-                                  verificationController:
-                                      controller.verificationController4!),
-                            ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            Expanded(
-                              child: VerificationInput(
-                                  focusIndex: controller.focusIndex.value,
-                                  index: 4,
-                                  verificationController:
-                                      controller.verificationController5!),
-                            ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                          ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        const SizedBox(
+                          width: 15,
                         ),
+                        Expanded(
+                          child: VerificationInput(
+                              focus: controller.focusNode1,
+                              verificationController:
+                                  controller.verificationController1!),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Expanded(
+                          child: VerificationInput(
+                              focus: controller.focusNode2,
+                              verificationController:
+                                  controller.verificationController2!),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Expanded(
+                          child: VerificationInput(
+                              focus: controller.focusNode3,
+                              verificationController:
+                                  controller.verificationController3!),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Expanded(
+                          child: VerificationInput(
+                              focus: controller.focusNode4,
+                              verificationController:
+                                  controller.verificationController4!),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Expanded(
+                          child: VerificationInput(
+                              focus: controller.focusNode5,
+                              verificationController:
+                                  controller.verificationController5!),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    !isKeyboard
+                        ? WarningBox(
+                            text:
+                                "کد 5 رقمی ارسال شده به شماره موبایل خود را در کادر بالا وارد نمایید")
+                        : SizedBox(height: size.height * 0.09),
+                    Padding(
+                      padding: const EdgeInsets.all(13),
+                      child: ButtonWidget(
+                        onPress: () {
+                          Get.offAllNamed(AppRoutes.signUpPage);
+                        },
+                        text: "ورود / ثبت نام",
                       ),
-                      controller.warningTextVisible.value
-                          ? Expanded(child: SizedBox())
-                          : Container(),
-                      controller.warningTextVisible.value
-                          ? WarningBox(
-                              text:
-                                  "کد 5 رقمی ارسال شده به شماره موبایل خود را در کادر بالا وارد نمایید")
-                          : SizedBox(height: size.height * 0.09),
-                      Padding(
-                        padding: const EdgeInsets.all(13),
-                        child: ButtonWidget(
-                          onPress: ontap,
-                          text: "ورود / ثبت نام",
-                        ),
-                      )
-                    ],
-                  ),
-                ))
+                    )
+                  ],
+                )
+              ],
+            ))
           ],
         ),
       )),
     );
-  }
-
-  ontap() {
-    Get.toNamed(AppRoutes.signUpPage);
   }
 }

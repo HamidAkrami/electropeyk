@@ -84,7 +84,7 @@ class _SplashScreenState extends State<SplashScreen>
       });
     logoColorAnimationController!.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        Get.toNamed(AppRoutes.homePage);
+        Get.offNamed(AppRoutes.loginPage);
       }
     });
   }
@@ -102,10 +102,10 @@ class _SplashScreenState extends State<SplashScreen>
             Container(),
             Expanded(
               child: Stack(
+                alignment: Alignment.center,
                 children: [
                   AnimatedPositioned(
                     duration: const Duration(milliseconds: 900),
-                    left: size.width * 0.2,
                     top:
                         moveUp == false ? size.height * 0.4 : size.height * 0.1,
                     child: Image.asset(

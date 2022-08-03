@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       getPages: App.pages,
       title: 'Flutter Clean Architecture',
-      theme: Themes.light,
+      theme: ThemeData(fontFamily: "Vazir"),
       debugShowCheckedModeBanner: false,
       locale: isEn ? const Locale('en', 'US') : const Locale('fa', 'IR'),
       darkTheme: Themes.dark,

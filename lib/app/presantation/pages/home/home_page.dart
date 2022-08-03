@@ -1,5 +1,13 @@
 import 'package:electropeyk/app/presantation/controllers/home_controller.dart';
-import 'package:electropeyk/app/presantation/pages/home/order_page/order_page.dart';
+import 'package:electropeyk/app/presantation/pages/home/electroclub/electroclub_page.dart';
+
+import 'package:electropeyk/app/presantation/pages/home/ordering_page/ordering_page.dart';
+import 'package:electropeyk/app/presantation/pages/home/orders_page/orders_page.dart';
+import 'package:electropeyk/app/presantation/pages/home/profile_page/profile_page.dart';
+import 'package:electropeyk/app/presantation/pages/home/profile_page/widgets/address_page.dart';
+import 'package:electropeyk/app/presantation/pages/home/profile_page/widgets/address_page_details/new_address.dart';
+import 'package:electropeyk/app/presantation/pages/home/profile_page/widgets/profile_page_details.dart';
+import 'package:electropeyk/app/presantation/pages/home/profile_page/widgets/wallet_page.dart';
 import 'package:electropeyk/app/presantation/pages/home/widgets/bottom_navigation_items.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,7 +19,7 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: Color(0xffE5E5EA),
+          backgroundColor: Color(0xffF2F2F7),
           body: Column(
             children: [
               Expanded(
@@ -19,40 +27,28 @@ class HomePage extends GetView<HomeController> {
                   child: PageView(
                     controller: controller.pageController,
                     children: [
-                      Center(
-                        child: Container(
-                            alignment: Alignment.center,
-                            height: 500,
-                            width: 300,
-                            color: Colors.blue,
-                            child: Text(
-                              "page1",
-                              style: TextStyle(fontSize: 50),
-                            )),
+                      Obx(
+                        () => controller.profilePage.value == 0
+                            ? ProfilePage()
+                            : controller.profilePage.value == 1
+                                ? ProfilePageDetails()
+                                : controller.profilePage.value == 2
+                                    ? WalletPage()
+                                    : controller.profilePage.value == 3
+                                        ? AddressPage()
+                                        : controller.profilePage.value == 4
+                                            ? NewAddress(
+                                                index: 4,
+                                              )
+                                            : controller.profilePage.value == 5
+                                                ? NewAddress(
+                                                    index: 5,
+                                                  )
+                                                : Container(),
                       ),
-                      Center(
-                        child: Container(
-                            alignment: Alignment.center,
-                            height: 500,
-                            width: 300,
-                            color: Colors.red,
-                            child: Text(
-                              "page2",
-                              style: TextStyle(fontSize: 50),
-                            )),
-                      ),
-                      Center(
-                        child: Container(
-                            alignment: Alignment.center,
-                            height: 500,
-                            width: 300,
-                            color: Colors.amber,
-                            child: Text(
-                              "page3",
-                              style: TextStyle(fontSize: 50),
-                            )),
-                      ),
-                      OrderPage()
+                      ElectroClubPage(),
+                      OrdersPage(),
+                      OrderingPage()
                     ],
                     onPageChanged: (page) {
                       controller.currentPageIndex.value = page;
@@ -63,9 +59,9 @@ class HomePage extends GetView<HomeController> {
             ],
           ),
           bottomNavigationBar: Container(
-            padding: EdgeInsets.symmetric(vertical: 5),
+            padding: const EdgeInsets.symmetric(vertical: 5),
             height: Get.height * 0.085,
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: const BoxDecoration(color: Colors.white),
             child: Obx(
               () => Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

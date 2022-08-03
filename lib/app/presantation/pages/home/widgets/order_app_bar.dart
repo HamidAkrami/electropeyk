@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ProductAppBar extends StatelessWidget {
+class OrderAppBar extends StatelessWidget {
   String? title;
-  ProductAppBar({Key? key, this.title}) : super(key: key);
+  OrderAppBar({Key? key, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -83,14 +83,14 @@ class MyTextStyle extends TextStyle {
       fontFamily: "Vazir",
       color: Colors.black54.withOpacity(0.5),
       fontWeight: FontWeight.w700,
-      fontSize: 10,
+      fontSize: 11,
     );
   }
 
   TextStyle get style11 {
     return const TextStyle(
       fontFamily: "Vazir",
-      color: Colors.black54,
+      color: Colors.black,
       fontWeight: FontWeight.w700,
       fontSize: 16,
     );
@@ -159,11 +159,10 @@ class MyTextStyle extends TextStyle {
 
   TextStyle get style19 {
     return TextStyle(
-      fontFamily: "Vazir",
-      color: Color(0xff15171A),
-      fontWeight: FontWeight.w500,
-      fontSize: 13,
-    );
+        fontFamily: "Vazir",
+        color: Color(0xff1E1E1E),
+        fontSize: 10,
+        fontWeight: FontWeight.w500);
   }
 
   TextStyle get style20 {
@@ -190,6 +189,52 @@ class MyTextStyle extends TextStyle {
       color: Color(0xff15171A),
       fontWeight: FontWeight.w700,
       fontSize: 16,
+    );
+  }
+
+  TextStyle get style23 {
+    return TextStyle(
+        color: Color(0xffffcc00), fontSize: 10, fontWeight: FontWeight.w700);
+  }
+
+  TextStyle get style24 {
+    return TextStyle(
+        color: Color(0xffFF3B30), fontSize: 10, fontWeight: FontWeight.w700);
+  }
+
+  TextStyle get style25 {
+    return TextStyle(
+        color: Color(0xff34C759), fontSize: 10, fontWeight: FontWeight.w700);
+  }
+
+  TextStyle get style26 {
+    return TextStyle(
+        color: Color(0xffFF3B30), fontSize: 10, fontWeight: FontWeight.w700);
+  }
+
+  TextStyle get style27 {
+    return TextStyle(fontSize: 13, fontWeight: FontWeight.w700);
+  }
+
+  TextStyle get style28 {
+    return TextStyle(
+      fontFamily: "Vazir",
+      fontWeight: FontWeight.w700,
+      fontSize: 11,
+    );
+  }
+
+  TextStyle get style29 {
+    return TextStyle(
+        color: Color(0xffFF3B30), fontSize: 14, fontWeight: FontWeight.w700);
+  }
+
+  TextStyle get style30 {
+    return TextStyle(
+      fontFamily: "Vazir",
+      color: Color(0xff15171A),
+      fontWeight: FontWeight.w700,
+      fontSize: 14,
     );
   }
 }

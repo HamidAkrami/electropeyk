@@ -12,7 +12,6 @@ class WarningBox extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         color: Colors.black.withOpacity(0.05),
       ),
-      margin: EdgeInsets.symmetric(horizontal: 13, vertical: 10),
       padding: EdgeInsets.symmetric(vertical: 10),
       child: Column(
         children: [

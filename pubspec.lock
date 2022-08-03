@@ -97,6 +97,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  flutter_rating_bar:
+    dependency: "direct main"
+    description:
+      name: flutter_rating_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.1"
   flutter_spinkit:
     dependency: transitive
     description:
@@ -130,6 +137,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.1"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.17.0"
+  jalali_table_calendar:
+    dependency: "direct main"
+    description:
+      name: jalali_table_calendar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.2+1"
+  jiffy:
+    dependency: transitive
+    description:
+      name: jiffy
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.0"
   lints:
     dependency: transitive
     description:
@@ -214,6 +242,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  persian_datetime_picker:
+    dependency: "direct main"
+    description:
+      name: persian_datetime_picker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.5.0"
   platform:
     dependency: transitive
     description:
